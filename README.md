@@ -1,10 +1,7 @@
-# OpenLiteSpeed WordPress Docker Container
-[![Build Status](https://github.com/litespeedtech/ols-docker-env/workflows/docker-build/badge.svg)](https://github.com/litespeedtech/ols-docker-env/actions/)
-[![docker pulls](https://img.shields.io/docker/pulls/litespeedtech/openlitespeed?style=flat&color=blue)](https://hub.docker.com/r/litespeedtech/openlitespeed)
-[<img src="https://img.shields.io/badge/slack-LiteSpeed-blue.svg?logo=slack">](litespeedtech.com/slack) 
-[<img src="https://img.shields.io/twitter/follow/litespeedtech.svg?label=Follow&style=social">](https://twitter.com/litespeedtech)
+# Dhanabhon Server Docker Container
 
-Install a lightweight WordPress container with OpenLiteSpeed Edge or Stable version based on Ubuntu 18.04 Linux.
+This repository forked from this [link](https://github.com/litespeedtech/ols-docker-env)
+Tested with Ubuntu 22.04
 
 ### Prerequisites
 1. [Install Docker](https://www.docker.com/)
@@ -12,12 +9,11 @@ Install a lightweight WordPress container with OpenLiteSpeed Edge or Stable vers
 
 ## Configuration
 Edit the `.env` file to update the demo site domain, default MySQL user, and password.
-Feel free to check [Docker hub Tag page](https://hub.docker.com/repository/docker/litespeedtech/openlitespeed/tags) if you want to update default openlitespeed and php versions. 
 
 ## Installation
 Clone this repository or copy the files from this repository into a new folder:
 ```
-git clone https://github.com/litespeedtech/ols-docker-env.git
+git clone https://github.com/Dhanabhon/dhanabhon-server-compose
 ```
 Open a terminal, `cd` to the folder in which `docker-compose.yml` is saved, and run:
 ```
@@ -31,9 +27,9 @@ The docker image installs the following packages on your system:
 
 |Component|Version|
 | :-------------: | :-------------: |
-|Linux|Ubuntu 20.04|
+|Linux|Ubuntu 22.04|
 |OpenLiteSpeed|[Latest version](https://openlitespeed.org/downloads/)|
-|MariaDB|[Stable version: 10.5](https://hub.docker.com/_/mariadb)|
+|MariaDB|[Latest version](https://hub.docker.com/_/mariadb)|
 |PHP|[Latest version](http://rpms.litespeedtech.com/debian/)|
 |LiteSpeed Cache|[Latest from WordPress.org](https://wordpress.org/plugins/litespeed-cache/)|
 |ACME|[Latest from ACME official](https://github.com/acmesh-official/get.acme.sh)|
@@ -176,10 +172,5 @@ RUN apt-get update && apt-get install lsphp80-pspell -y
 docker-compose up --build
 ```
 
-## Support & Feedback
-If you still have a question after using OpenLiteSpeed Docker, you have a few options.
-* Join [the GoLiteSpeed Slack community](https://litespeedtech.com/slack) for real-time discussion
-* Post to [the OpenLiteSpeed Forums](https://forum.openlitespeed.org/) for community support
-* Reporting any issue on [Github ols-docker-env](https://github.com/litespeedtech/ols-docker-env/issues) project
-
-**Pull requests are always welcome** 
+## References
+- [OpenLiteSpeed WordPress Docker Container](https://github.com/litespeedtech/ols-docker-env)

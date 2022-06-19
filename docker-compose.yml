@@ -1,7 +1,7 @@
-version: '3'
+version: '3.9'
 services:
   mysql:
-    image: mariadb:10.5.9
+    image: mariadb:latest
     logging:
       driver: none
     command: --max_allowed_packet=256M
@@ -37,7 +37,7 @@ services:
     environment:
       TZ: ${TimeZone}
   phpmyadmin:
-    image: bitnami/phpmyadmin:5.0.2-debian-10-r72
+    image: bitnami/phpmyadmin:latest
     logging:
       driver: none
     ports:
@@ -45,4 +45,5 @@ services:
       - 8443:443
     environment:
         DATABASE_HOST: mysql
+        UPLOAD_LIMIT: 1024M
     restart: always    
