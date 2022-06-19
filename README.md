@@ -11,12 +11,12 @@ Edit the `.env` file to update the demo site domain, default MySQL user, and pas
 
 ## Installation
 Clone this repository or copy the files from this repository into a new folder:
-```
+```shell
 git clone https://github.com/Dhanabhon/dhanabhon-server-compose
 ```
 Open a terminal, `cd` to the folder in which `docker-compose.yml` is saved, and run:
-```
-docker-compose up
+```shell
+docker compose up
 ```
 
 Note: If you wish to run a single web server container, please see the [usage method here](https://github.com/litespeedtech/ols-dockerfiles#usage).
@@ -73,79 +73,79 @@ Cloned project
 ## Usage
 ### Starting a Container
 Start the container with the `up` or `start` methods:
-```
-docker-compose up
+```shell
+$ docker compose up
 ```
 You can run with daemon mode, like so:
-```
-docker-compose up -d
+```shell
+$ docker compose up -d
 ```
 The container is now built and running. 
 ### Stopping a Container
-```
-docker-compose stop
+```shell
+docker compose stop
 ```
 ### Removing Containers
 To stop and remove all containers, use the `down` command:
-```
-docker-compose down
+```shell
+docker compose down
 ```
 ### Setting the WebAdmin Password
 We strongly recommend you set your personal password right away.
-```
+```shell
 bash bin/webadmin.sh my_password
 ```
 ### Starting a Demo Site
 After running the following command, you should be able to access the WordPress installation with the configured domain. By default the domain is http://localhost.
-```
+```shell
 bash bin/demosite.sh
 ```
 ### Creating a Domain and Virtual Host
-```
+```shell
 bash bin/domain.sh [-A, --add] example.com
 ```
 > Please ignore SSL certificate warnings from the server. They happen if you haven't applied the certificate.
 ### Deleting a Domain and Virtual Host
-```
+```shell
 bash bin/domain.sh [-D, --del] example.com
 ```
 ### Creating a Database
 You can either automatically generate the user, password, and database names, or specify them. Use the following to auto generate:
-```
+```shell
 bash bin/database.sh [-D, --domain] example.com
 ```
 Use this command to specify your own names, substituting `user_name`, `my_password`, and `database_name` with your preferred values:
-```
+```shell
 bash bin/database.sh [-D, --domain] example.com [-U, --user] USER_NAME [-P, --password] MY_PASS [-DB, --database] DATABASE_NAME
 ```
 ### Installing a WordPress Site
 To preconfigure the `wp-config` file, run the `database.sh` script for your domain, before you use the following command to install WordPress:
-```
+```shell
 ./bin/appinstall.sh [-A, --app] wordpress [-D, --domain] example.com
 ```
 ### Install ACME 
 We need to run the ACME installation command the **first time only**. 
 With email notification:
-```
+```shell
 ./bin/acme.sh [-I, --install] [-E, --email] EMAIL_ADDR
 ```
 ### Applying a Let's Encrypt Certificate
 Use the root domain in this command, and it will check for a certificate and automatically apply one with and without `www`:
-```
+```shell
 ./bin/acme.sh [-D, --domain] example.com
 ```
 ### Update Web Server
 To upgrade the web server to latest stable version, run the following:
-```
+```shell
 bash bin/webadmin.sh [-U, --upgrade]
 ```
 ### Apply OWASP ModSecurity
 Enable OWASP `mod_secure` on the web server: 
-```
+```shell
 bash bin/webadmin.sh [-M, --mod-secure] enable
 ```
 Disable OWASP `mod_secure` on the web server: 
-```
+```shell
 bash bin/webadmin.sh [-M, --mod-secure] disable
 ```
 >Please ignore ModSecurity warnings from the server. They happen if some of the rules are not supported by the server.
@@ -167,8 +167,41 @@ RUN apt-get update && apt-get install lsphp80-pspell -y
     build: ./custom
 ```
 4. Build and start it with command:
+```shell
+docker compose up --build
 ```
-docker-compose up --build
+
+## Increase upload size in PHP.ini
+Run a command in a running container
+```shell
+$ docker exec -it [openlitespeed container ID] /bin/bash -c "export TERM=xterm; exec bash"
+```
+Example
+```shell
+$ docker exec -it 24c8528f4619 /bin/bash -c "export TERM=xterm; exec bash"
+```
+If the above command doesn't work try this:
+```
+$ docker exec -it 24c8528f4619 /bin/bash
+$ apt-get update
+$ apt-get install nano
+export TERM=xterm
+```
+Go to php.ini file
+```shell
+$ cd /usr/local/lsws/lsphp80/etc/php/8.0/litespeed/
+```
+Update php.ini file
+```shell
+nano php.ini
+```
+Edit Upload Max File Size
+```
+upload_max_filesize = 1024M
+```
+Restart docker container
+```shell
+$ docker restart [openlitespeed container ID]
 ```
 
 ## References
