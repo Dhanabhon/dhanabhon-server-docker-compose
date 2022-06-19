@@ -185,7 +185,7 @@ If the above command doesn't work try this:
 $ docker exec -it 24c8528f4619 /bin/bash
 $ apt-get update
 $ apt-get install nano
-export TERM=xterm
+$ export TERM=xterm
 ```
 Go to php.ini file
 ```shell
@@ -193,7 +193,7 @@ $ cd /usr/local/lsws/lsphp80/etc/php/8.0/litespeed/
 ```
 Update php.ini file
 ```shell
-nano php.ini
+$ nano php.ini
 ```
 Edit Upload Max File Size
 ```
