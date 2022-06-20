@@ -196,9 +196,17 @@ Update php.ini file
 ```shell
 $ nano php.ini
 ```
-Edit Upload Max File Size
+Edit Memory Limit & Upload Max File Size & Post Max Size & Whatever you want
 ```
+memory_limit = 256M
+
 upload_max_filesize = 1024M
+
+post_max_size = 1024M
+```
+Exit from container
+```shell
+$ exit
 ```
 Restart docker container
 ```shell
