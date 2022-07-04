@@ -46,4 +46,4 @@ services:
     environment:
         DATABASE_HOST: mysql
         UPLOAD_LIMIT: 1024M
-    restart: always    
+    restart: always
