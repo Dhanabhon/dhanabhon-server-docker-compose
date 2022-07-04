@@ -99,6 +99,7 @@ docker compose down
 ```
 ### Setting the WebAdmin Password
 We strongly recommend you set your personal password right away.
+WebAdmin is running at 7080 port
 ```shell
 bash bin/webadmin.sh my_password
 ```
