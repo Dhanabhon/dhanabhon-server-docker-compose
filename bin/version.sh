@@ -25,7 +25,7 @@ check_input(){
 }
 
 check_version() {
-    echo 'Dhanabhon Server Docker Version ${VERSION}'
+    echo "Dhanabhon Server Docker Version ${VERSION}"
 }
 
 check_input ${1}
