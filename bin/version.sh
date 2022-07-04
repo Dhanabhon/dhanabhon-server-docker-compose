@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 VERSION='1.0.0'
+RELEASE_DATE='4 Jul 2022'
 EPACE='        '
 
 echow(){
@@ -25,7 +26,7 @@ check_input(){
 }
 
 check_version() {
-    echo "Dhanabhon Server Docker Version ${VERSION}"
+    echo "Dhanabhon Server Docker Version ${VERSION}, ${RELEASE_DATE}"
 }
 
 check_input ${1}
