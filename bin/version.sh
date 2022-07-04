@@ -39,8 +39,8 @@ while [ ! -z "${1}" ]; do
             check_version
             ;;            
         *)
-            help_message
-            ;;              
+            check_version
+            ;;
     esac
     shift
 done
