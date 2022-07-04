@@ -4,7 +4,7 @@
 - The Dhanabhon server docker container has been tested on the Ubuntu 22.04.
 
 ### Prerequisites
-1. [Install Docker](https://www.docker.com/)
+1. [Install Docker (Ubuntu)](https://docs.docker.com/engine/install/ubuntu/)
 2. [Install Docker Compose](https://docs.docker.com/compose/)
 
 ## Configuration
