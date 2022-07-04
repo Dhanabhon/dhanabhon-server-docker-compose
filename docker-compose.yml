@@ -37,7 +37,7 @@ services:
     environment:
       TZ: ${TimeZone}
   phpmyadmin:
-    image: bitnami/phpmyadmin:latest
+    image: phpmyadmin:latest
     logging:
       driver: none
     ports:
