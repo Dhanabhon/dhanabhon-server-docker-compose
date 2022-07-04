@@ -26,7 +26,15 @@ check_input(){
     fi
 }
 
+install_packages(){
+    if [ "${1}" = 'wordpress' ]; then
+        docker-compose exec litespeed /bin/bash -c "pkginstallctl.sh --package ed"
+        docker-compose exec litespeed /bin/bash -c "pkginstallctl.sh --package unzip"  
+    fi    
+}
+
 app_download(){
+    install_packages ${1}
     docker-compose exec litespeed su -c "appinstallctl.sh --app ${1} --domain ${2}"
     bash bin/webadmin.sh -r
     exit 0
