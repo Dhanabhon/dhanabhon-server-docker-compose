@@ -2,7 +2,6 @@ version: '3.3'
 services:
   mysql:
     image: mariadb:latest
-    container_name: dhanabhon-mariadb
     logging:
       driver: none
     command: --max_allowed_packet=256M
@@ -18,7 +17,6 @@ services:
     restart: always
   litespeed:
     image: litespeedtech/openlitespeed:${OLS_VERSION}-${PHP_VERSION}
-    container_name: dhanabhon-litespeed
     logging:
       driver: none
     env_file:
@@ -40,7 +38,6 @@ services:
       TZ: ${TimeZone}
   phpmyadmin:
     image: bitnami/phpmyadmin:latest
-    container_name: dhanabhon-phpmyadmin
     logging:
       driver: none
     ports:

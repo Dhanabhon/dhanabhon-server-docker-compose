@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-VERSION='1.0.0'
+VERSION='1.0.1'
 RELEASE_DATE='4 Jul 2022'
 EPACE='        '
 
