@@ -1,7 +1,13 @@
 # Dhanabhon Server Docker Container
 
 - This repository forked from this [link](https://github.com/litespeedtech/ols-docker-env)
-- The Dhanabhon server docker container has been tested on the Ubuntu 22.04.
+- The Dhanabhon server docker container has been tested on the Ubuntu 22.04/20.04
+
+### Server Minimum Requirements
+- OS: Ubuntu
+- 1 CPU
+- 1 GB RAM
+- 25GB SSD Disk
 
 ### Prerequisites
 1. [Install Docker (Ubuntu)](https://docs.docker.com/engine/install/ubuntu/)
