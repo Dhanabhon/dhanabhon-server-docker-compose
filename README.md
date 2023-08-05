@@ -168,7 +168,7 @@ bash bin/webadmin.sh [-M, --mod-secure] disable
 ```
 >Please ignore ModSecurity warnings from the server. They happen if some of the rules are not supported by the server.
 ### Accessing the Database
-After installation, you can use phpMyAdmin to access the database by visiting `http://127.0.0.1:8080` or `https://127.0.0.1:8443`. The default username is `root`, and the password is the same as the one you supplied in the `.env` file.
+After installation, you can use phpMyAdmin to access the database by visiting `http://YOUR_SERVER_IP:8080` or `https://YOUR_SERVER_IP:8443`. The default username is `root`, and the password is the same as the one you supplied in the `.env` file.
 
 ## Customization
 If you want to customize the image by adding some packages, e.g. `lsphp80-pspell`, just extend it with a Dockerfile. 
@@ -188,6 +188,20 @@ RUN apt-get update && apt-get install lsphp80-pspell -y
 ```
 docker compose up --build
 ```
+
+## Accessing the OpenLiteSpeed GUI Admin Panel
+After installation, you can use OpenLiteSpeed admin panel to access the admin panel by visiting `http://YOUR_SERVER_IP:7080`.
+
+## Setting the Administrator Acount Credentials
+Following command:
+```
+  $ sudo /usr/local/lsws/admin/misc/admpass.sh
+```
+You will see the output, which will prompt you to enter a username and password
+
+## Increasing the Maximum Upload File Size
+Update the php.ini file
+
 
 ## Support & Feedback
 If you still have a question after using OpenLiteSpeed Docker, you have a few options.
