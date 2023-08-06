@@ -2,6 +2,7 @@ version: '3.3'
 services:
   mysql:
     image: mariadb:latest
+    container_name: mariadb
     logging:
       driver: none
     command: --max_allowed_packet=256M
@@ -15,8 +16,11 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     restart: always
+    networks:
+      - default
   litespeed:
     image: litespeedtech/openlitespeed:${OLS_VERSION}-${PHP_VERSION}
+    container_name: openlitespeed
     logging:
       driver: none
     env_file:
@@ -36,8 +40,11 @@ services:
     restart: always
     environment:
       TZ: ${TimeZone}
+    networks:
+      - default
   phpmyadmin:
-    image: phpmyadmin:latest
+    image: bitnami/phpmyadmin:latest
+    container_name: phpmyadmin
     logging:
       driver: none
     ports:
@@ -47,6 +54,8 @@ services:
         DATABASE_HOST: mysql
         UPLOAD_LIMIT: 1024M
     restart: always
+    networks:
+      - default
   redis:
     image: redis:latest
   memcached:
