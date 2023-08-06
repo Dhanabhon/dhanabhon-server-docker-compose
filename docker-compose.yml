@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   mysql:
-    image: mariadb:latest
+    image: mariadb:10.5.9
     container_name: mariadb
     logging:
       driver: none
@@ -41,7 +41,7 @@ services:
     networks:
       - default
   phpmyadmin:
-    image: bitnami/phpmyadmin:latest
+    image: bitnami/phpmyadmin:5.2.0-debian-11-r43
     container_name: phpmyadmin
     logging:
       driver: none
