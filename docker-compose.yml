@@ -8,8 +8,6 @@ services:
     command: --max_allowed_packet=256M
     volumes:
       - "./data/db:/var/lib/mysql:delegated"
-    ports:
-       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -48,11 +46,14 @@ services:
     logging:
       driver: none
     ports:
-      - 8080:80
-      - 8443:443
+      - 8080:8080
+      - 8443:8443
     environment:
         DATABASE_HOST: mysql
         UPLOAD_LIMIT: 1024M
     restart: always
     networks:
       - default
+networks:
+  default:
+    driver: bridge
