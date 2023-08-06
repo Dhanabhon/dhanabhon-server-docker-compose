@@ -1,7 +1,7 @@
 # Dhanabhon Server Docker Container
 
 - This repository forked from this [link](https://github.com/litespeedtech/ols-docker-env)
-- The Dhanabhon server docker container has been tested on the Ubuntu 22.04/20.04
+- The Dhanabhon server docker container has been tested on the Ubuntu 22.04/20.04 and Debian 12
 
 ### Server Minimum Requirements
 - OS: Ubuntu
