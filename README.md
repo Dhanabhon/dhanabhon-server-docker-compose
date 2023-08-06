@@ -197,7 +197,7 @@ $ export TERM=xterm
 ```
 Go to php.ini file
 ```shell
-$ cd /usr/local/lsws/lsphp80/etc/php/8.0/litespeed/
+$ cd /usr/local/lsws/lsphp81/etc/php/8.1/litespeed/
 ```
 Update php.ini file
 ```shell
